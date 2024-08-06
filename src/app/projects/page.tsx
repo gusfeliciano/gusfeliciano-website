@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    title: "Project 1",
+    title: "Cloud Resume Challenge: Front-End",
     description: "A brief description of project 1.",
     technologies: ["React", "Node.js", "MongoDB"],
     link: "https://project1.com"

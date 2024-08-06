@@ -33,7 +33,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
   
   const { data: frontmatter, content } = matter(fileContent)
 
-  // Format the date
   const formattedDate = new Date(frontmatter.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -44,20 +43,20 @@ export default async function Post({ params }: { params: { slug: string } }) {
     <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
       <Navbar />
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
-        <article className="prose dark:prose-invert">
-          <h1>{frontmatter.title}</h1>
-          <p>{formattedDate}</p>
+        <article className="prose dark:prose-invert max-w-none">
+          <h1 className="text-3xl font-bold mb-4">{frontmatter.title}</h1>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">{formattedDate}</p>
           {frontmatter.coverImage && (
             <Image
               src={frontmatter.coverImage}
               alt={frontmatter.title}
               width={800}
               height={400}
-              className="w-full h-auto"
+              className="w-full h-auto mb-8"
             />
           )}
           <div className="mt-8">
-          <MDXRemote source={content} />
+            <MDXRemote source={content} />
           </div>
         </article>
       </main>
