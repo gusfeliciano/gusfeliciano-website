@@ -1,11 +1,10 @@
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
-import Link from 'next/link'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import SocialLinks from '../../components/SocialLinks'
 
 export const metadata = {
   title: 'Contact | Gus Feliciano',
-  description: 'Get in touch with Gus Feliciano for web development projects or collaborations.',
+  description: 'Get in touch with Gus Feliciano for technical program management, cloud solutions, or Agile methodologies discussions.',
 }
 
 export default function Contact() {
@@ -21,21 +20,13 @@ export default function Contact() {
           <div className="mb-4">
             <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Email</h2>
             <a href="mailto:your.email@example.com" className="text-blue-600 dark:text-blue-400 hover:underline">
-              your.email@example.com
+              gus.feliciano@outlook.com
             </a>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Social Media</h2>
+            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Connect with me</h2>
             <div className="flex space-x-4">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-                <FaGithub size={24} />
-              </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-                <FaLinkedin size={24} />
-              </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-                <FaTwitter size={24} />
-              </a>
+            <SocialLinks />
             </div>
           </div>
         </div>

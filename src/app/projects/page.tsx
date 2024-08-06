@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Projects | Gus Feliciano',
-  description: 'Explore the web development projects created by Gus Feliciano, showcasing skills in React, Node.js, and more.',
+  description: 'Explore innovative projects by Gus Feliciano, showcasing expertise in cloud architecture, Agile methodologies, and tech innovation.',
 }
 
 const projects = [

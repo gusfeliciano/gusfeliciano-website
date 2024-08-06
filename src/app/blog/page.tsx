@@ -4,7 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'Blog | Gus Feliciano',
+  description: 'Explore articles on cloud architecture, Agile methodologies, and tech innovation by Gus Feliciano.',
+}
 interface PostMetadata {
   title?: string;
   date?: string;

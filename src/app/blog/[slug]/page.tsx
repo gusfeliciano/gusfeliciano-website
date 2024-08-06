@@ -5,6 +5,19 @@ import matter from 'gray-matter'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import Image from 'next/image'
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params
+  const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.mdx`)
+  const fileContent = fs.readFileSync(filePath, 'utf8')
+  const { data: frontmatter } = matter(fileContent)
+
+  return {
+    title: `${frontmatter.title} | Gus Feliciano's Blog`,
+    description: frontmatter.excerpt || 'Read this insightful article by Gus Feliciano on cloud architecture, Agile methodologies, and tech innovation.',
+  }
+}
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join('src', 'posts'))
