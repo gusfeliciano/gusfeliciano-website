@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
       <Navbar />
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">About Me</h1>

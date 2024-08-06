@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
       <Navbar />
       <main className="flex-grow flex items-start justify-center p-8 mt-16">
         <div className="max-w-4xl w-full flex flex-col md:flex-row items-center gap-8">

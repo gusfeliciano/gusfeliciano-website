@@ -17,7 +17,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const fileContent = fs.readFileSync(filePath, 'utf8')
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
       <Navbar />
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
         <article className="prose dark:prose-invert">
