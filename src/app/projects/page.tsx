@@ -9,6 +9,12 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    title: "My Personal Website",
+    description: "Developed a modern, responsive personal website using Next.js and React. Features include a dynamic blog system with MDX support, dark mode toggle, and responsive design.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MDX", "Vercel"],
+    link: "https://github.com/gusfeliciano/gusfeliciano-website"
+  },
+  {
     title: "Cloud Resume Challenge Part 1: AWS Serverless Website",
     description: "Built a cloud-native resume website using AWS services, showcasing skills in serverless architecture and cloud development. Implemented a visitor counter using a backend API.",
     technologies: ["AWS S3", "CloudFront", "Route 53", "DynamoDB", "Lambda", "API Gateway", "HTML", "CSS", "JavaScript"],
