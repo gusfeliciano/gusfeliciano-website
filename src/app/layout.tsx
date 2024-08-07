@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Gus Feliciano',
   description: 'Personal website of Gus Feliciano',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
