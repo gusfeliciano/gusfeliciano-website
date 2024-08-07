@@ -1,0 +1,163 @@
+---
+title: Automating AWS Deployments: CI/CD for Your Cloud Resume
+date: 2024-08-07
+excerpt: Automate AWS deployments with CI/CD. Implement GitHub Actions for frontend and backend. Configure AWS credentials, S3 syncing, and CloudFront invalidation. Streamline your cloud resume workflow and enhance your DevOps skills.
+coverImage: /images/aws cloud resume challenge part 1.jpeg
+---
+
+# Automating the Cloud Resume Challenge: Implementing CI/CD with GitHub Actions
+
+## Introduction
+
+In the first part of this series, we walked through building a cloud-native resume website using various AWS services. Now, we'll take our project to the next level by implementing Continuous Integration and Continuous Deployment (CI/CD) using GitHub Actions. This automation is crucial for maintaining and updating our cloud resume efficiently.
+
+CI/CD is a modern software development practice that emphasizes automating the stages of app development. In the context of our Cloud Resume Challenge, it means we can update our resume or make changes to our backend code, push these changes to GitHub, and have them automatically deployed to our AWS infrastructure.
+
+## Why CI/CD Matters in Cloud Development
+
+Before we dive into the implementation, let's discuss why CI/CD is so important:
+
+1. **Consistency**: Automated deployments ensure that every change is applied consistently across your infrastructure.
+2. **Efficiency**: Manual deployments are time-consuming and prone to human error. Automation saves time and reduces mistakes.
+3. **Rapid Iteration**: With CI/CD, new features and bug fixes can be deployed quickly and safely.
+4. **Best Practices**: Implementing CI/CD encourages good development practices like frequent commits, comprehensive testing, and code reviews.
+5. **Scalability**: As your project grows, CI/CD pipelines can easily scale to accommodate more complex deployment processes.
+
+## Setting Up the GitHub Repositories
+
+For this project, we'll use two separate repositories:
+
+1. **Frontend Repository**: Contains the HTML, CSS, and JavaScript files for the static website.
+2. **Backend Repository**: Houses the AWS CDK code for the Lambda function, API Gateway, and DynamoDB table.
+
+This separation allows us to manage and version control our frontend and backend code independently.
+
+## Implementing CI/CD for the Frontend
+
+Let's start by setting up a GitHub Actions workflow for our frontend. Create a new file in your frontend repository at `.github/workflows/deploy-frontend.yml`:
+
+```yaml
+name: Deploy Frontend
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Deploy to S3
+      run: aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete
+
+    - name: Invalidate CloudFront
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+```
+
+This workflow does the following:
+
+1. Triggers on pushes to the main branch
+2. Sets up AWS credentials (which we'll configure in GitHub secrets)
+3. Syncs the repository contents to the S3 bucket
+4. Invalidates the CloudFront cache to ensure the latest version is served
+
+## Implementing CI/CD for the Backend
+
+For the backend, we'll create a similar workflow. Create a new file in your backend repository at `.github/workflows/deploy-backend.yml`:
+
+```yaml
+name: Deploy Backend
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests
+      run: npm test
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Deploy to AWS
+      run: npx cdk deploy --require-approval never
+```
+
+This workflow:
+
+1. Triggers on pushes to the main branch
+2. Sets up Node.js
+3. Installs dependencies
+4. Runs tests (which you should implement)
+5. Sets up AWS credentials
+6. Deploys the CDK stack
+
+## Managing Secrets
+
+To keep our sensitive information secure, we'll use GitHub Secrets. Go to your repository settings, click on "Secrets and variables", then "Actions", and add the following secrets:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `S3_BUCKET`
+- `CLOUDFRONT_DISTRIBUTION_ID`
+
+These secrets are securely encrypted and only exposed to the GitHub Actions workflow during execution.
+
+## Best Practices for CI/CD in Cloud-Native Applications
+
+1. **Keep Secrets Secure**: Never hard-code sensitive information. Always use environment variables or a secrets management service.
+
+2. **Implement Robust Testing**: Include unit tests, integration tests, and end-to-end tests in your CI pipeline.
+
+3. **Use Infrastructure as Code**: Define your infrastructure using tools like AWS CDK or CloudFormation. This ensures consistency and allows version control of your infrastructure.
+
+4. **Monitor Your Pipelines**: Set up notifications for failed deployments and regularly review your CI/CD logs.
+
+5. **Implement Gradual Rollouts**: Consider using techniques like blue-green deployments or canary releases for safer deployments.
+
+## Challenges and Lessons Learned
+
+Implementing CI/CD wasn't without its challenges. Here are some lessons learned:
+
+1. **IAM Permissions**: Ensure your AWS IAM user has the correct permissions for deployment. It may take some trial and error to get this right.
+
+2. **Dependency Management**: Keep your dependencies up-to-date in the CI environment. Consider using tools like Dependabot to automate this process.
+
+3. **Testing is Crucial**: Invest time in writing comprehensive tests. They will save you from deploying bugs to production.
+
+4. **Cost Management**: Be aware of the costs associated with your CI/CD pipeline, especially if you're running extensive tests or deployments frequently.
+
+## Conclusion
+
+Implementing CI/CD with GitHub Actions has significantly streamlined our development process for the Cloud Resume Challenge. It allows us to focus on writing code and making improvements, knowing that deployment is just a git push away.
+
+This experience reinforces the importance of automation in cloud development and provides hands-on experience with industry-standard CI/CD practices. Whether you're working on a personal project or a large-scale application, investing time in setting up a robust CI/CD pipeline pays dividends in productivity and reliability.
+
+Remember, CI/CD is not a one-time setup. Continue to refine your pipelines, add more tests, and optimize your workflows as your project evolves. Happy coding and deploying!
