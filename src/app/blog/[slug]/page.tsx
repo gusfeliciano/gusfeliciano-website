@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import matter from 'gray-matter'
-import Navbar from '../../../components/Navbar'
-import Footer from '../../../components/Footer'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 
@@ -41,7 +39,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
-      <Navbar />
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
         <article className="prose dark:prose-invert max-w-none">
           <h1 className="text-3xl font-bold mb-4">{frontmatter.title}</h1>
@@ -60,7 +57,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </div>
         </article>
       </main>
-      <Footer />
     </div>
   )
 }

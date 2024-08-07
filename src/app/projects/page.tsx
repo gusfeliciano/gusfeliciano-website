@@ -1,5 +1,3 @@
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -32,7 +30,6 @@ const projects = [
 export default function Projects() {
   return (
     <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
-      <Navbar />
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Projects</h1>
         <div className="space-y-8">
@@ -54,7 +51,6 @@ export default function Projects() {
           ))}
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

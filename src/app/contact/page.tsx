@@ -1,5 +1,3 @@
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import SocialLinks from '../../components/SocialLinks'
 
 export const metadata = {
@@ -10,7 +8,6 @@ export const metadata = {
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
-      <Navbar />
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Contact Me</h1>
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
@@ -31,7 +28,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

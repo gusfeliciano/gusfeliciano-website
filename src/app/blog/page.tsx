@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
 import Image from 'next/image'
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -50,7 +48,6 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
-      <Navbar />
       <main className="flex-grow max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Blog Posts</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -79,7 +76,6 @@ export default function Blog() {
           ))}
         </div>
       </main>
-      <Footer />
     </div>
   )
 }
