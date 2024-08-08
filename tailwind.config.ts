@@ -48,6 +48,36 @@ const config: Config = {
                 color: theme('colors.accent'),
               },
             },
+            h1: {
+              color: theme('colors.text.dark'),
+            },
+            h2: {
+              color: theme('colors.text.dark'),
+            },
+            h3: {
+              color: theme('colors.text.dark'),
+            },
+            h4: {
+              color: theme('colors.text.dark'),
+            },
+            h5: {
+              color: theme('colors.text.dark'),
+            },
+            h6: {
+              color: theme('colors.text.dark'),
+            },
+            strong: {
+              color: theme('colors.text.dark'),
+            },
+            code: {
+              color: theme('colors.text.dark'),
+            },
+            figcaption: {
+              color: theme('colors.gray.400'),
+            },
+            blockquote: {
+              color: theme('colors.text.dark'),
+            },
           },
         },
       }),

@@ -38,10 +38,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
   })
 
   return (
-    <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-light-bg dark:bg-dark-bg">
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
-        <article className="prose dark:prose-invert max-w-none">
-          <h1 className="text-3xl font-bold mb-4">{frontmatter.title}</h1>
+        <article className="prose dark:prose-dark prose-lg max-w-none">
+          <h1 className="text-3xl font-bold mb-4 text-text-light dark:text-text-dark">{frontmatter.title}</h1>
           <p className="text-gray-600 dark:text-gray-400 mb-4">{formattedDate}</p>
           {frontmatter.coverImage && (
             <Image
