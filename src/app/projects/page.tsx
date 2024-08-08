@@ -15,9 +15,15 @@ const projects = [
   {
     title: "Cloud Resume Challenge Part 1: AWS Serverless Website",
     description: "Built a cloud-native resume website using AWS services, showcasing skills in serverless architecture and cloud development. Implemented a visitor counter using a backend API.",
-    technologies: ["AWS S3", "CloudFront", "Route 53", "DynamoDB", "Lambda", "API Gateway", "HTML", "CSS", "JavaScript"],
-    link: "https://github.com/gusfeliciano/cloud-resume-frontend"
+    technologies: ["AWS S3", "CloudFront", "Route 53", "HTML", "CSS", "JavaScript"],
+    link: "https://github.com/gusfeliciano/aws-serverless-resume"
   },
+  {
+    title: "Cloud Resume Challenge Part 2: AWS Serverless Backend with CI/CD",
+    description: "Developed the serverless backend infrastructure for the Cloud Resume Challenge, implementing a visitor counter API with automated deployment. Utilized infrastructure as code and CI/CD practices to create a robust, scalable backend solution.",
+    technologies: ["DynamoDB", "Lambda", "API Gateway", "AWS CDK", "GitHub Actions", "Node.js"],
+    link: "https://github.com/gusfeliciano/aws-resume-cicd"
+  }
   // Add more projects as needed
   //{
   //  title: "Project 2",
