@@ -46,6 +46,17 @@ To customize this template for your own use:
 4. Add your own blog posts as MDX files in the `src/posts` directory
 5. Customize the styling by modifying the Tailwind classes or updating `tailwind.config.js`
 
+## Managing Blog Posts
+
+To exclude specific posts from appearing on your blog page while keeping them in your repository:
+
+1. Open `src/app/blog/page.tsx`
+2. Add your post filename to the `EXCLUDED_POSTS` array:
+   ```typescript
+   const EXCLUDED_POSTS = ['.DS_Store', 'example-post-template.mdx', 'your-post-to-hide.mdx'];
+   ```
+3. The posts listed in this array will be excluded from the blog listing but remain in your repository for reference.
+
 Please remember to remove all of my personal information, projects, and blog posts before publishing your own version.
 
 ## Deployment
