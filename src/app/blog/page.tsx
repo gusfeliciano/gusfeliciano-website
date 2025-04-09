@@ -30,8 +30,9 @@ function getPostMetadata(content: string): PostMetadata {
 }
 
 export default function Blog() {
+  const EXCLUDED_POSTS = ['.DS_Store', 'example-post-template.mdx', 'my-journey-deploying-owasp-juice-shop-aws-ecs.mdx'];
   const postFiles = fs.readdirSync(path.join(process.cwd(), 'src', 'posts'))
-    .filter(filename => filename !== '.DS_Store' && filename !== 'example-post-template.mdx')
+    .filter(filename => !EXCLUDED_POSTS.includes(filename))
   const posts = postFiles.map((filename) => {
     const slug = filename.replace('.mdx', '')
     const filePath = path.join(process.cwd(), 'src', 'posts', filename)
