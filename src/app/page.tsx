@@ -28,11 +28,11 @@ export default function Home() {
           I'm a tech enthusiast, cloud architect, and Agile advocate. I create solutions that bridge technology and business needs, specializing in cloud architecture, Agile project management, and process automation.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-          <Button asChild>
+          {/*<Button asChild>
             <a href="/Gustavo.Feliciano.Resume.pdf" download>
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </a>
-          </Button>
+          </Button>*/}
           <Button asChild variant="outline">
             <Link href="/about">
               Learn More About Me <ArrowRight className="ml-2 h-4 w-4" />
