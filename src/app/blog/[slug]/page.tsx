@@ -5,7 +5,8 @@ import matter from 'gray-matter'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const { slug } = params
   const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.mdx`)
   const fileContent = fs.readFileSync(filePath, 'utf8')
@@ -24,11 +25,12 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+export default async function Post(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const { slug } = params
   const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.mdx`)
   const fileContent = fs.readFileSync(filePath, 'utf8')
-  
+
   const { data: frontmatter, content } = matter(fileContent)
 
   const formattedDate = new Date(frontmatter.date).toLocaleDateString('en-US', {
