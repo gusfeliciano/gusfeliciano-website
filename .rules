@@ -23,6 +23,7 @@
 - Two frontmatter parsers exist (regex in blog listing, gray-matter in post page) — keep frontmatter simple (no `: ` in values)
 - Never run `npm audit fix --force` here — it tries to downgrade next to 9.x; use the scoped postcss override instead
 - Verify AI-generated images' real format before committing (`sips -g format` — Gemini saved a PNG with a .jpeg extension; convert with `sips -s format jpeg`)
+- Fork-template leftovers lurk — contact page shipped ~10 months with a placeholder mailto href; grep for example.com/placeholder values when touching older pages
 
 ## Workflow
 
