@@ -15,12 +15,14 @@
 ## Code patterns
 
 - Blog posts: MDX in `src/posts/` with `title`/`date`/`excerpt`/`coverImage` frontmatter; hide via `EXCLUDED_POSTS`
+- New-post checklist: no `: ` in frontmatter values; do NOT quote the excerpt (listing shows quotes literally); no H1 in the body (page renders the title); cover ≈1600×800 jpeg in `public/images/`
 
 ## Gotchas
 
 - Keep `.npmrc` legacy-peer-deps until Next 16 / React 19 peer-dep conflicts resolve — Vercel builds fail without it
 - Two frontmatter parsers exist (regex in blog listing, gray-matter in post page) — keep frontmatter simple (no `: ` in values)
 - Never run `npm audit fix --force` here — it tries to downgrade next to 9.x; use the scoped postcss override instead
+- Verify AI-generated images' real format before committing (`sips -g format` — Gemini saved a PNG with a .jpeg extension; convert with `sips -s format jpeg`)
 
 ## Workflow
 

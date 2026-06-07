@@ -5,18 +5,19 @@
 
 ## Current focus
 
-Maintenance mode. Just installed basecamp (v0.1.0) for session continuity.
+Maintenance mode. Latest: published the basecamp announcement post (2026-06-07).
 
 ## Recent changes
 
+- Published "Giving AI Coding Agents a Memory - Why I Built basecamp" + cover image;
+  drafted via multi-agent workflow, fact-checked vs README, Codex-reviewed (2026-06-07)
+- Set madeordinary GitHub org bio (2026-06-07)
 - Cleared all 14 Dependabot alerts: next → 16.2.7, postcss → 8.5.15 via scoped override (2026-06-07)
 - Installed basecamp memory bank + workflows; seeded bank via init-memory (2026-06-07)
-- Dependency upgrades: Next 14 → 16, React 19, ESLint 9; `.npmrc` legacy-peer-deps for Vercel (2026-01)
-- Commented out resume download button on home page
 
 ## Next steps
 
-1. (user to define — content updates? resume button decision? new posts?)
+1. (user to define — resume button decision? next post? Made Ordinary site build-out?)
 
 ## Open questions
 

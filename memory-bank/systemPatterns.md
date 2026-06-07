@@ -27,6 +27,8 @@ public/             → profile image, resume PDF, post cover images
 
 ## Patterns in use
 
+- Post bodies must NOT start with an H1 — `blog/[slug]/page.tsx` already renders
+  frontmatter.title as the page H1 (older posts violate this and show double titles)
 - Hiding posts: add filename to `EXCLUDED_POSTS` in `src/app/blog/page.tsx` — excluded
   from the listing but still statically generated and reachable by direct URL
 - Blog listing parses frontmatter with a hand-rolled regex (`getPostMetadata`), while

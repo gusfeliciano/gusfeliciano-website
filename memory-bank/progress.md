@@ -10,12 +10,12 @@
 ## What works
 
 - All pages live on Vercel: home, about, projects, contact, blog + post pages
-- MDX blog with frontmatter (title, date, excerpt, coverImage), 4 published posts
+- MDX blog with frontmatter (title, date, excerpt, coverImage), 5 published posts
 - Dark mode toggle, responsive layout, Vercel Analytics
 
 ## In progress
 
-- Memory bank seeding (this session)
+- Nothing — between efforts
 
 ## What's left to build
 
@@ -28,9 +28,14 @@
   not exist in `public/images/` — would 404 (all current posts set one, so latent)
 - Blog listing's regex frontmatter parser breaks on values containing `: ` —
   gray-matter on the post page handles them fine, so listing/post can disagree
+- Older posts (pre-2026) duplicate the title: post page renders frontmatter.title as
+  the H1 AND their bodies start with an H1. Quoted excerpts on older posts also show
+  literal quote marks on listing cards. New posts avoid both; old ones not yet cleaned up
 
 ## Recent milestones
 
+- 2026-06-07: published basecamp announcement post (giving-ai-coding-agents-a-memory)
+  with cover image; verified build; live on Vercel
 - 2026-06-07: all 14 Dependabot vulnerabilities cleared — next 16.2.7, postcss 8.5.15
   (scoped override for Next's nested copy), Codex-reviewed, build verified
 - 2026-06-07: basecamp v0.1.0 installed, memory bank seeded
