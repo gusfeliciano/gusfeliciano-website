@@ -10,6 +10,7 @@
 ## User preferences
 
 - Hooks stay off — Gus runs `/start` manually at session open; don't suggest enabling them
+- Check fixes with Codex (ask-codex / codex MCP) before committing
 
 ## Code patterns
 
@@ -19,6 +20,7 @@
 
 - Keep `.npmrc` legacy-peer-deps until Next 16 / React 19 peer-dep conflicts resolve — Vercel builds fail without it
 - Two frontmatter parsers exist (regex in blog listing, gray-matter in post page) — keep frontmatter simple (no `: ` in values)
+- Never run `npm audit fix --force` here — it tries to downgrade next to 9.x; use the scoped postcss override instead
 
 ## Workflow
 

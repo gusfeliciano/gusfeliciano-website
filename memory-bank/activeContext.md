@@ -9,14 +9,16 @@ Maintenance mode. Just installed basecamp (v0.1.0) for session continuity.
 
 ## Recent changes
 
+- Cleared all 14 Dependabot alerts: next → 16.2.7, postcss → 8.5.15 via scoped override (2026-06-07)
 - Installed basecamp memory bank + workflows; seeded bank via init-memory (2026-06-07)
 - Dependency upgrades: Next 14 → 16, React 19, ESLint 9; `.npmrc` legacy-peer-deps for Vercel (2026-01)
 - Commented out resume download button on home page
 
 ## Next steps
 
-1. Commit the basecamp install
-2. (user to define — content updates? resume button decision? new posts?)
+1. (user to define — content updates? resume button decision? new posts?)
+2. Follow-up maintenance: align `@next/mdx` / `eslint-config-next` specs to ^16.2.7
+   (Codex suggestion, not urgent — lockfile already resolves correctly)
 
 ## Open questions
 

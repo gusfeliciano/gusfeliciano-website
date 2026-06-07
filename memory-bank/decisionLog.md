@@ -20,6 +20,12 @@
 - **Adopt basecamp v0.1.0 memory bank** (2026-06-07): session continuity for a
   return-occasionally project; hooks intentionally NOT enabled — user runs `/start`
   manually each session
+- **Scoped npm override for Next's nested postcss** (2026-06-07): Next ≤16.2.7 pins
+  vulnerable postcss@8.4.31 internally; override forces ≥8.5.10 (GHSA-qx2v-qp2m-jg93).
+  Scoped to `next` per Codex review (alternatives: global override, accept build-time-only
+  residual risk). **Remove the override once Next bumps its own postcss pin.**
+- **Cross-agent review for dependency/security fixes** (2026-06-07): user wants Codex
+  consulted on fixes before committing (basecamp ask-codex pattern)
 
 ## ADR index
 

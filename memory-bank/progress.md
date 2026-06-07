@@ -31,6 +31,8 @@
 
 ## Recent milestones
 
+- 2026-06-07: all 14 Dependabot vulnerabilities cleared — next 16.2.7, postcss 8.5.15
+  (scoped override for Next's nested copy), Codex-reviewed, build verified
 - 2026-06-07: basecamp v0.1.0 installed, memory bank seeded
 - 2026-01: Next.js 16 / React 19 upgrade, Vercel build fixed
 - 2025: OWASP + cloud resume challenge post series, Vercel Analytics added
