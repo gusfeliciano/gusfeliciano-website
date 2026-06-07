@@ -17,8 +17,6 @@ Maintenance mode. Just installed basecamp (v0.1.0) for session continuity.
 ## Next steps
 
 1. (user to define — content updates? resume button decision? new posts?)
-2. Follow-up maintenance: align `@next/mdx` / `eslint-config-next` specs to ^16.2.7
-   (Codex suggestion, not urgent — lockfile already resolves correctly)
 
 ## Open questions
 
