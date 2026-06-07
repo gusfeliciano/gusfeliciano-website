@@ -1,0 +1,33 @@
+# Project Rules & Learnings
+
+> The learning journal. Append non-obvious patterns, preferences, and gotchas as they're discovered.
+>
+> **Keep it high-signal, not append-forever.** Soft cap ~40 lines. When the file grows
+> past that, prune: delete things that are no longer true, and promote stabilized
+> conventions into `systemPatterns.md` (architecture) or the relevant memory-bank file.
+> A line earns its place by helping the next session make a better decision.
+
+## User preferences
+
+- Hooks stay off — Gus runs `/start` manually at session open; don't suggest enabling them
+
+## Code patterns
+
+- Blog posts: MDX in `src/posts/` with `title`/`date`/`excerpt`/`coverImage` frontmatter; hide via `EXCLUDED_POSTS`
+
+## Gotchas
+
+- Keep `.npmrc` legacy-peer-deps until Next 16 / React 19 peer-dep conflicts resolve — Vercel builds fail without it
+- Two frontmatter parsers exist (regex in blog listing, gray-matter in post page) — keep frontmatter simple (no `: ` in values)
+
+## Workflow
+
+- Deploy = push to main; Vercel auto-deploys. No tests, no CI in this repo.
+
+## Things we've tried and rejected
+
+-
+
+## Style and tone
+
+-
