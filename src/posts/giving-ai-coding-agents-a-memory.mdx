@@ -1,0 +1,121 @@
+---
+title: Giving AI Coding Agents a Memory - Why I Built basecamp
+date: 2026-06-07
+excerpt: AI coding agents forget everything between sessions. Learn how basecamp, my open-source memory bank and workflow kit for Claude Code and Codex, keeps project context in version-controlled markdown - and how to set it up in minutes.
+coverImage: /images/basecamp-cover.jpeg
+---
+
+In today's world of AI-assisted development, tools like Claude Code and Codex CLI have become a core part of how I build software. As a cloud professional, I maintain roughly 35 side-project repositories on GitHub, and a few weeks ago I caught myself re-explaining the same project to Claude for the third time in one week - what I was building, why I chose the stack, and which approaches I had already rejected. Every new session started from zero, and I was the only memory the project had.
+
+That frustration led me to build basecamp, an open-source memory bank and workflow kit for AI coding agents. In this post, I'll discuss why agent amnesia becomes a real problem as projects multiply, walk you through setting up basecamp on a new or existing project, and share my experience running it on this very website.
+
+## The Problem of Agent Amnesia
+
+An AI coding agent is brilliant within a session and a complete stranger at the start of the next one. The usual fix is to dump a paragraph of context into every prompt, but that breaks down in predictable ways:
+
+1. **You Forget Something**: The context lives in your head, and your head isn't version controlled.
+2. **The Context Outgrows the Prompt**: The paragraph becomes a page that no longer fits at the top of every conversation.
+3. **You Switch Tools**: Move from Claude Code to Codex, or to whatever ships next year, and you're rebuilding the ritual from nothing.
+
+Worse, I would return to a project after two months away, and neither I nor the agent remembered why a decision was made - so we would relitigate it, sometimes landing on an approach I had already tried and abandoned.
+
+## The Memory Bank Idea
+
+The core pattern isn't mine, and I want to credit it properly: basecamp's memory bank is adapted from Cline's memory bank, created by Nick Baumann, which is excellent but Cline-specific, and the workflow-command shape is borrowed in spirit from gstack. basecamp aims to be the smallest thing that delivers both. The idea is simple - instead of living in your head or in chat history, context lives in a small, opinionated directory of markdown files the agent reads at the start of every session.
+
+**Why version-controlled markdown?**
+
+- Transparency: Read, diff, and review the agent's memory like any other file in the repo.
+- Portability: It's not a proprietary store that gets deprecated, stays on one machine, or locks you to a single IDE.
+- Durability: The memory travels with the repo - clone it on a new laptop and the context comes along.
+
+## What basecamp Is
+
+basecamp packages that idea as a portable kit for both Claude Code and Codex. The memory bank is seven core files with a clear hierarchy:
+
+- `projectbrief.md` - what you're building and why; rarely changes
+- `productContext.md` - the user problem and UX goals
+- `systemPatterns.md` and `techContext.md` - architecture, stack, and constraints
+- `decisionLog.md` - durable decisions and an Architecture Decision Record (ADR) index
+- `activeContext.md` - the current focus; changes most often
+- `progress.md` - an honest status snapshot
+
+A `.rules` file sits alongside as a learning journal for preferences and gotchas, and basecamp ships 17 workflows - session start, code review, decision logging, handoffs, retros, pre-merge checks - each available as a Claude Code slash command and as a Codex skill.
+
+**Why does it work with both Claude Code and Codex?** The trick is small but deliberate: `AGENTS.md` is the canonical bootstrap, and `CLAUDE.md` is a one-line file that imports it. Codex auto-reads `AGENTS.md`; Claude Code auto-reads `CLAUDE.md` and follows the import. Same source of truth, both tools.
+
+## Setting Up basecamp
+
+For a brand-new project:
+
+```bash
+npx degit gusfeliciano/basecamp#v0.1.0 my-project
+cd my-project
+git init
+printf '{ "upstream": "gusfeliciano/basecamp", "ref": "v0.1.0", "linked": false }\n' > .basecamp.json
+```
+
+These commands do the following:
+
+1. Download the v0.1.0 release contents without the git history - a starter copy, not a fork.
+2. Initialize a fresh git repository.
+3. Write `.basecamp.json`, a provenance anchor recording which basecamp version you started from - `sync-upstream` uses it later to show exactly what changed upstream.
+
+Then open it in Claude Code or Codex and seed the bank based on what you have:
+
+- **Existing code**: run `/init-memory` (or `$init-memory` in Codex)
+- **A Product Requirements Document (PRD) or brief**: run `/from-prd docs/prd.md`
+- **Just a rough idea**: run `/discover`
+- **A clear idea in your head**: paste it into `memory-bank/projectbrief.md`
+
+For an existing project, drop basecamp's files in without clobbering anything that's already there:
+
+```bash
+cd ~/path/to/your-existing-project
+
+git clone --depth 1 --branch v0.1.0 https://github.com/gusfeliciano/basecamp.git /tmp/basecamp
+rsync -av --ignore-existing --exclude 'settings.local.json' /tmp/basecamp/memory-bank /tmp/basecamp/.agents /tmp/basecamp/.claude /tmp/basecamp/.rules /tmp/basecamp/AGENTS.md /tmp/basecamp/CLAUDE.md /tmp/basecamp/hooks /tmp/basecamp/docs .
+rm -rf /tmp/basecamp
+[ -e .basecamp.json ] || printf '{ "upstream": "gusfeliciano/basecamp", "ref": "v0.1.0", "linked": false }\n' > .basecamp.json
+```
+
+The `--ignore-existing` flag skips files already present, so nothing of yours is overwritten. One caveat: if your project already has an `AGENTS.md` or `CLAUDE.md`, that same flag means basecamp's versions are skipped - you'll need to merge the bootstrap instructions into your existing files manually.
+
+Then - and this is the part most people miss - don't fill the memory bank by hand. Run `/init-memory`: the agent reads your codebase, README, and dependencies, then proposes contents for each memory bank file. Review the drafts, edit anything that's off, and approve - faster than filling templates from blank, and it catches things you'd forget to write down. Finally, run `/start` to verify the bootstrap works.
+
+## A Five-Minute Tour
+
+Day to day, the loop stays small: seed once, `/start` every session, `/update-memory` before you stop. `/start` reads the bank in order, then `.rules`, then the recent git log, and asks where to pick up. While you work, the agent keeps `activeContext.md` honest and appends non-obvious patterns to `.rules`. `/decision-log` records an ADR when a choice matters, `/ship` walks a pre-merge checklist, and `/update-memory` shows you the diffs and asks before writing.
+
+## What Makes basecamp Different
+
+Memory banks aren't new, and a folder of markdown templates is an afternoon project; anyone can publish one. What I wanted was to treat prompts and context like software - versioned, tested, and safe to update:
+
+1. **Dual-CLI Parity, Enforced**: Every workflow has a native Claude Code command and a native Codex skill - 17 of each - and CI fails if either side of a pair goes missing.
+2. **Cross-Agent Second Opinions**: Claude can shell out to Codex to review a plan, and vice versa - a single read-only review by default, capped at two rounds when you explicitly ask. If the other CLI isn't installed, it falls back to a clearly labeled self-critique - never a pretend review.
+3. **Updates That Can't Touch Your Memory**: `sync-upstream` pulls framework updates through an explicit allowlist. Your `memory-bank/`, `.rules`, and ADRs sit structurally outside it, and a test enforces that the allowlist never grows to include them.
+4. **Tested Like Software**: Parity, sync-allowlist, and degit-export smoke tests run in CI. The export test guarantees a fresh install ships clean templates - never someone else's project context.
+
+## When Not to Use basecamp
+
+I'll be honest: basecamp is overhead you won't recoup on every project.
+
+- Throwaway scripts and one-session tasks - if you'll never come back to it, there's no memory to preserve.
+- Quick exploratory hacking, where you don't want the agent pausing to read or update a bank.
+- Projects already standardized on another context system you're happy with - basecamp can complement these, but don't adopt it just to have two.
+
+It pays off when you return to a project across many sessions and want continuity that doesn't depend on your memory.
+
+## This Website Runs basecamp
+
+Here's the part I find most satisfying: the website you're reading this post on runs basecamp. It's a Next.js project in maintenance mode - I touch it in short sessions, sometimes weeks apart, exactly where an agent's amnesia hurts most - so I installed v0.1.0 and ran `/init-memory`.
+
+The bank now carries things I would otherwise rediscover every session: that the blog has two frontmatter parsers that disagree on certain values, that a constant in the listing page controls which posts are visible, that the `.npmrc` file exists because Vercel builds fail without it, and that `npm audit fix --force` is a rejected approach because it tries to downgrade Next.js to an ancient version. A fresh Claude session now knows all of this before I type a word of context - no re-explaining, no archaeology. That's the experience I was chasing; this post itself was drafted that way, with the agent reading the bank's rendering gotchas before writing a single line.
+
+## Conclusion
+
+Building basecamp was more than just scratching an itch - it was a chance to treat agent workflows with the same engineering discipline we apply to application code: version control, CI, tests, and honest documentation of trade-offs. The memory bank idea belongs to the community that came before me; the contribution I hope basecamp makes is the engineering around it.
+
+basecamp is MIT licensed and available at [github.com/gusfeliciano/basecamp](https://github.com/gusfeliciano/basecamp). There's no package to install - the kit is markdown files in folders, plus the command and skill files for each CLI and a set of optional shell hooks. If you fork it, change everything - especially the workflows. The whole point is that the prompts encode your opinions, not anyone else's.
+
+Remember, the best context system is the one you'll actually keep up to date - and the easiest one to keep up to date is the one your agent maintains for you. Happy coding!
