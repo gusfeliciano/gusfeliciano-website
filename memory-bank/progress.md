@@ -19,7 +19,9 @@
 
 ## What's left to build
 
-- Nothing committed — site is feature-complete for current needs
+- Phase 0 (committed, ~3 sessions): shared post loader → OG/social cards → 2026 copy refresh
+- Then per docs/two-sites-one-launch-plan.md: RSS + footer, OWASP post resolution,
+  "Introducing Made Ordinary" post (timed to studio launch), basecamp follow-up posts
 
 ## Known issues
 
@@ -34,6 +36,8 @@
 
 ## Recent milestones
 
+- 2026-06-07: site strategy + launch plan locked (multi-agent panel, Codex-reviewed twice);
+  design prompts for both sites produced; strategy docs saved to docs/
 - 2026-06-07: published basecamp announcement post (giving-ai-coding-agents-a-memory)
   with cover image; verified build; live on Vercel
 - 2026-06-07: all 14 Dependabot vulnerabilities cleared — next 16.2.7, postcss 8.5.15

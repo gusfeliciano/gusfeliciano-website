@@ -11,10 +11,24 @@
 
 ## Active decisions
 
+- **Ecosystem/content strategy** (2026-06-07): gusfeliciano.com = identity + ALL dated
+  writing (incl. Made Ordinary making-of stories); madeordinary.com = product/support +
+  evergreen undated philosophy pages + release notes, NO dated journal at launch (revisit
+  triggers: app traction, user-facing release content); basecamp canonical on GitHub;
+  social = distribution only. Validated: 4-lens panel + 3 adversarial critics + Codex
+  (sound-with-amendments). Full doc: docs/site-strategy.md
+- **madeordinary.com stack** (2026-06-07): Next.js App Router (static) + Tailwind on
+  Vercel — same stack as this site, one mental model; kept "brutally static" (no CMS, no
+  API routes, no blog). Codex-confirmed over Astro+Cloudflare. Plan: docs/two-sites-one-launch-plan.md
+- **Purpose Budget stays OUT of Made Ordinary** (2026-06-07): separate product, separate
+  presence; MO site features Aery + Tune (+ Alio/Larken/Rein coming soon)
+- **Resume button: keep hidden by default** (2026-06-07): PDF is 22 months stale
+  (July 2024); unhide only in a recruiting-focused refresh with a freshly exported PDF and
+  an acknowledged refresh obligation — resolves the 2025-12 open question
 - **Upgrade to Next 16 / React 19 / ESLint 9** (2026-01): stay current on security
   patches — required `.npmrc` `legacy-peer-deps=true` for Vercel builds
 - **Hide resume download button** (2025-12): commented out on home page, PDF remains
-  in `public/` — reason not recorded
+  in `public/` — reason not recorded. (Reason established + policy set 2026-06-07, see above)
 - **Exclude OWASP Juice Shop post from blog listing**: via `EXCLUDED_POSTS` — reason
   not recorded
 - **Adopt basecamp v0.1.0 memory bank** (2026-06-07): session continuity for a

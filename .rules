@@ -16,6 +16,7 @@
 
 - Blog posts: MDX in `src/posts/` with `title`/`date`/`excerpt`/`coverImage` frontmatter; hide via `EXCLUDED_POSTS`
 - New-post checklist: no `: ` in frontmatter values; do NOT quote the excerpt (listing shows quotes literally); no H1 in the body (page renders the title); cover ≈1600×800 jpeg in `public/images/`
+- Editorial rule: every dated post defaults to gusfeliciano.com. madeordinary.com hosts evergreen undated product pages + release notes; app pages are the canonical target for product-fact links. No dated MO journal at launch.
 
 ## Gotchas
 
