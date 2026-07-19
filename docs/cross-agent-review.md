@@ -1,6 +1,6 @@
 # Cross-Agent Review
 
-Basecamp supports optional second opinions between Claude Code and Codex through
+Serel Memory supports optional second opinions between Claude Code and Codex through
 their CLIs. This is intentionally a thin workflow, not a full orchestrator.
 
 ## Policy

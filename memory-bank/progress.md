@@ -21,7 +21,7 @@
 
 - Phase 0 (committed, ~3 sessions): shared post loader → OG/social cards → 2026 copy refresh
 - Then per docs/two-sites-one-launch-plan.md: RSS + footer, OWASP post resolution,
-  "Introducing Made Ordinary" post (timed to studio launch), basecamp follow-up posts
+  "Introducing Made Ordinary" post (timed to studio launch), Serel Memory follow-up posts
 
 ## Known issues
 
@@ -38,10 +38,10 @@
 
 - 2026-06-07: site strategy + launch plan locked (multi-agent panel, Codex-reviewed twice);
   design prompts for both sites produced; strategy docs saved to docs/
-- 2026-06-07: published basecamp announcement post (giving-ai-coding-agents-a-memory)
+- 2026-06-07: published Serel Memory (then basecamp) announcement post (giving-ai-coding-agents-a-memory)
   with cover image; verified build; live on Vercel
 - 2026-06-07: all 14 Dependabot vulnerabilities cleared — next 16.2.7, postcss 8.5.15
   (scoped override for Next's nested copy), Codex-reviewed, build verified
-- 2026-06-07: basecamp v0.1.0 installed, memory bank seeded
+- 2026-06-07: Serel Memory (then basecamp) v0.1.0 installed, memory bank seeded
 - 2026-01: Next.js 16 / React 19 upgrade, Vercel build fixed
 - 2025: OWASP + cloud resume challenge post series, Vercel Analytics added

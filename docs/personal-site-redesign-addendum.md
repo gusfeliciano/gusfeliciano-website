@@ -14,14 +14,14 @@ so the personal site and madeordinary.com stay coherent.
 >
 > ## 1. Identity line (hero + about)
 > The 2026 identity is: **Senior Technical Program Manager / AWS Solutions Architect who ships —
-> author of basecamp (open-source memory bank for AI coding agents) and founder of Made Ordinary,
+> author of Serel Memory (open-source memory bank for AI coding agents) and founder of Made Ordinary,
 > an indie app studio.** Design the hero so this dual identity reads in one composed glance.
 > Note: until the studio's public announcement, the copy stays soft ("currently building Made
 > Ordinary, an indie app studio") with no outbound link — design both the pre-launch and
 > post-launch states of that line.
 >
 > ## 2. Projects page restructure
-> - **Flagship tier:** basecamp gets a case-study-style entry — what it is, why it exists, links
+> - **Flagship tier:** Serel Memory gets a case-study-style entry — what it is, why it exists, links
 >   to the GitHub repo AND its announcement post on this blog
 > - **Studio tier:** a Made Ordinary entry that, post-launch, links OUT to madeordinary.com
 >   (pre-launch: the soft no-link state). The studio's apps are NOT detailed here — one card,
@@ -30,7 +30,7 @@ so the personal site and madeordinary.com stay coherent.
 >   big cards
 >
 > ## 3. Footer (sitewide)
-> Links: madeordinary.com ("my studio"), basecamp repo, RSS icon (feed is coming — design the
+> Links: madeordinary.com ("my studio"), Serel Memory repo, RSS icon (feed is coming — design the
 > affordance now), GitHub, LinkedIn. Auto-year copyright.
 >
 > ## 4. NEW deliverable: OG / social card templates (1200×630)
@@ -42,7 +42,7 @@ so the personal site and madeordinary.com stay coherent.
 > enough to build standalone — typographic, no complex layout dependencies.
 >
 > ## 5. Blog stays the spine
-> The strategy confirmed: ALL my dated writing lives here — cloud/TPM posts, basecamp/AI-tooling
+> The strategy confirmed: ALL my dated writing lives here — cloud/TPM posts, Serel Memory/AI-tooling
 > posts, AND the Made Ordinary making-of stories. The studio site hosts no blog. So the blog
 > index and post pages carry three content pillars; make sure the design doesn't visually assume
 > a single topic.

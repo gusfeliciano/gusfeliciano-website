@@ -41,6 +41,7 @@ This workflow shells out to the Codex CLI. It does not require MCP.
    RISKS:
    SUGGESTED CHANGES:
    QUESTIONS:
+   VERDICT: APPROVE | REVISE | RETHINK
 
    <plan/artifact/context>
    ```
@@ -51,13 +52,21 @@ This workflow shells out to the Codex CLI. It does not require MCP.
    codex --version
    ```
 
-4. Run Codex in read-only mode:
+4. Run Codex in read-only mode. Long prompts passed inline as an argument can
+   hang `codex exec` — always write the prompt to a temp file and pipe it, in
+   a single shell invocation (shell state doesn't survive across tool calls):
 
    ```bash
-   codex exec --cd "$PWD" --sandbox read-only "<prompt>"
+   PROMPT_FILE="$(mktemp)"
+   cat > "$PROMPT_FILE" <<'EOF'
+   ...the full prompt...
+   EOF
+   codex exec --cd "$PWD" --sandbox read-only - < "$PROMPT_FILE"
+   rm -f "$PROMPT_FILE"
    ```
 
 5. Summarize Codex's response for the user:
+   - Verdict (APPROVE / REVISE / RETHINK)
    - Agreements
    - Gaps or disagreements
    - Plan changes worth adopting

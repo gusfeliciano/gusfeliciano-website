@@ -11,7 +11,7 @@ review (verdict: **sound-with-amendments** — all 4 amendments applied below).
 **gusfeliciano.com is the durable identity-and-writing home for Gus the person**: the 30-second
 proof for recruiters that he's a senior TPM / cloud architect who actually ships production and
 open-source software, and the canonical home for his dated long-form writing — career/cloud/security,
-AI tooling and basecamp, and the Made Ordinary making-of stories.
+AI tooling and Serel Memory, and the Made Ordinary making-of stories.
 
 It is the **author/narrative layer** of the ecosystem, not its router. Every feature must be
 build-once, file-driven, and cadence-free.
@@ -22,7 +22,7 @@ build-once, file-driven, and cadence-free.
 |---|---|---|
 | **gusfeliciano.com** | Identity, career credentials, ALL dated narrative writing | Product facts, app support |
 | **madeordinary.com** | Product facts, support, per-app privacy/terms, **evergreen undated** product-philosophy pages ("Why Aery is local-first"), and product-support artifacts users need there (release notes, changelogs, security notices) | Dated narrative essays *at launch* (default with revisit triggers — e.g. an app gains real traction — not permanent doctrine) |
-| **basecamp (GitHub)** | The tool itself — README, docs, releases | — (announcements/deep-dives are blog posts that the README links to) |
+| **Serel Memory (GitHub)** | The tool itself — README, docs, releases | — (announcements/deep-dives are blog posts that the README links to) |
 | **Social (LinkedIn etc.)** | Distribution only | Canonical anything |
 
 Pattern verified against how Marco Arment, Mitchell Hashimoto, Simon Willison, Casey Liss structure
@@ -32,7 +32,7 @@ What binds *here* is the constraint: solo author, sessions weeks apart, recruite
 ## Writing strategy
 
 - **One canonical home for dated writing: gusfeliciano.com.** Career posts, security write-ups,
-  basecamp/AI-tooling posts, and Made Ordinary build-in-public stories all live as MDX in `src/posts/`.
+  Serel Memory/AI-tooling posts, and Made Ordinary build-in-public stories all live as MDX in `src/posts/`.
 - The per-post "which blog?" question is pre-answered by a one-line editorial rule (record it in
   `.rules`): *every dated post defaults to gusfeliciano.com; madeordinary.com hosts evergreen undated
   product pages + release notes/changelogs; app pages are the canonical target for product-fact links.*
@@ -58,12 +58,12 @@ Everything else loses to building madeordinary.com itself.
   in the same change.
 - **Escape hatch** if the launch window arrives before Tier 2: launch post title/excerpt contain no
   `: `, `coverImage` set, and the LISTING card gets a render check — not just the post page.
-- **Tier 3 — minimal copy refresh:** home one-liner + About updated to 2026 identity (basecamp author,
+- **Tier 3 — minimal copy refresh:** home one-liner + About updated to 2026 identity (Serel Memory author,
   Made Ordinary founder), Projects page links out to madeordinary.com.
 - **Launch day:** publish "Introducing Made Ordinary" on gusfeliciano.com timed to madeordinary.com
   go-live. The post is the canonical *archive* of the story, not the launch vehicle. Reach comes from
   a one-shot distribution checklist: Tune → Jellyfin clients list + r/jellyfin; Aery → local-first/
-  privacy + journaling communities; basecamp → Show HN + Claude Code/Codex communities. **Each share
+  privacy + journaling communities; Serel Memory → Show HN + Claude Code/Codex communities. **Each share
   links the madeordinary.com app page as the primary URL** (the young domain earns the launch links).
   LinkedIn gets the founder-story angle.
 - Explicitly NOT gating: RSS, sitemap, robots, footer. A feed has zero subscribers on day one; a
@@ -76,18 +76,18 @@ Everything else loses to building madeordinary.com itself.
 2. **Tier 2 shared loader** (full scope per amendment #2) — one session; *reduces* ongoing risk
 3. **2026 copy refresh** (home + About + Projects links to studio) — one session; one-time
 4. **Write & publish "Introducing Made Ordinary"** + one-shot distribution checklist — a weekend + an afternoon
-5. ~~basecamp follow-up post #1~~ → **conditional** (Codex amendment #1): only if studio launch work
+5. ~~Serel Memory follow-up post #1~~ → **conditional** (Codex amendment #1): only if studio launch work
    is blocked or the window slips; otherwise it's first in NEXT
 
 ### NEXT (post-launch)
-1. **basecamp follow-up post #1** — the AI-workflow story (how the memory bank + cross-agent review
+1. **Serel Memory follow-up post #1** — the AI-workflow story (how the memory bank + cross-agent review
    works in practice; doubles as the /uses replacement). The 2026 AI-agent content wave is live and
-   basecamp has the only existing organic channel (GitHub)
+   Serel Memory has the only existing organic channel (GitHub)
 2. **RSS** (`feed.xml` route on the shared loader) + footer rebuild (auto-year, links to
-   madeordinary.com + basecamp) — one session; zero ongoing
+   madeordinary.com + Serel Memory) — one session; zero ongoing
 3. **Resolve the OWASP post** — render-check via new loader, un-exclude or delete — under an hour
 4. **"Why I started Made Ordinary" post** — seeds the indie-dev pillar
-5. basecamp follow-up post #2 if #1 lands well
+5. Serel Memory follow-up post #2 if #1 lands well
 
 ### LATER (batched, triggered, or with the redesign)
 - sitemap.ts + robots.ts — batch into the next loader-touching session

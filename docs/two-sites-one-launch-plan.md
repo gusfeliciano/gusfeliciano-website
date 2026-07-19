@@ -31,11 +31,11 @@ refactor to the loader after. Loader-first is the default with months of runway,
 - One static default OG image in `/public` (visual comes from the redesign's asset work if ready;
   a plain typographic card if not — don't block on the redesign)
 - Post-page `generateMetadata` reusing each post's `coverImage` as its OG image
-- Verify: basecamp post renders as a proper card in a link preview
+- Verify: Serel Memory post renders as a proper card in a link preview
 
 **Session 3 — 2026 copy refresh** (content only; the visual redesign restyles it later)
-- Home one-liner + About: senior TPM / AWS SA who ships — author of basecamp, founder of Made Ordinary
-- Projects page: basecamp becomes the flagship entry (repo + announcement post links); Cloud Resume
+- Home one-liner + About: senior TPM / AWS SA who ships — author of Serel Memory, founder of Made Ordinary
+- Projects page: Serel Memory becomes the flagship entry (repo + announcement post links); Cloud Resume
   entries demoted to compact list; Made Ordinary mentioned with soft pre-announcement copy
   ("currently building Made Ordinary, an indie app studio") — no link until madeordinary.com has a
   minimal public home (Codex: don't route people to a bare GitHub org pre-announcement)
@@ -49,7 +49,7 @@ refactor to the loader after. Loader-first is the default with months of runway,
      in scope ("Why Aery is local-first", "Why Tune is open source"); per-app release-notes space;
      About/founder section links to gusfeliciano.com as the narrative home
   2. **Personal site addendum** (paste into the in-progress redesign project): Projects restructure,
-     OG card template design (default + post variant), footer (links to madeordinary.com, basecamp,
+     OG card template design (default + post variant), footer (links to madeordinary.com, Serel Memory,
      RSS slot), 2026 identity line — so the two designs are coherent without merging brands
 - Buy/confirm madeordinary.com DNS + set up hello@/support@ email (iCloud+ Custom Domain or
   Fastmail — pick once, zero ongoing)
@@ -62,7 +62,7 @@ plan in months, not weeks — the repo's own history shows burst work separated 
   the personal site: one mental model, zero new ops, memory bank already documents the gotchas.
   Codex's condition: "keep madeordinary.com brutally static — do not import the personal site's
   blog complexity unless content volume proves it necessary."
-- New repo in the madeordinary org (e.g. `madeordinary/site`), basecamp memory bank installed
+- New repo in the madeordinary org (e.g. `madeordinary/site`), Serel Memory bank installed
   day one (his own pattern, and it's the project most likely to be touched in scattered sessions)
 - Page priority order — **lead-app-first** (Codex amendment: build the full submission bundle for
   whichever app submits to the App Store first; the other app's pages must not block it):
@@ -85,7 +85,7 @@ plan in months, not weeks — the repo's own history shows burst work separated 
   r/jellyfin; Aery → local-first/privacy + journaling communities; each share links the
   **madeordinary.com app page as the primary URL**; LinkedIn gets the founder-story angle
 - RSS on gusfeliciano.com lands here (NEXT-tier item, built on the Phase 0 loader)
-- basecamp follow-up post #1 (AI-workflow story) slots wherever a free weekend appears — it must
+- Serel Memory follow-up post #1 (AI-workflow story) slots wherever a free weekend appears — it must
   not displace Phase 2 sessions
 
 ## What changed vs. the strategy doc

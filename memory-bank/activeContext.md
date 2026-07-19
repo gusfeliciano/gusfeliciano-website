@@ -16,7 +16,7 @@ plan locked (2026-06-07). Next implementation work is Phase 0 of the plan.
   button stays hidden — see decisionLog (2026-06-07)
 - Fixed contact page mailto href (was template placeholder your.email@example.com) (2026-06-07)
 - Claude Design redesign prompt doc (now in repo: docs/personal-site-claude-design-prompt.md) (2026-06-07)
-- Published "Giving AI Coding Agents a Memory - Why I Built basecamp" + cover image (2026-06-07)
+- Published "Giving AI Coding Agents a Memory - Why I Built basecamp" + cover image (2026-06-07; basecamp is now Serel Memory)
 
 ## Next steps
 

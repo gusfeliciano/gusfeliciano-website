@@ -25,7 +25,7 @@ Purpose: Explore a redesign of the personal portfolio + blog at gusfeliciano.com
 > ## Who I am (the site has to carry all of this)
 >
 > - **Day job:** Senior Technical Program Manager and AWS Certified Solutions Architect, based in Colorado. The site's first audience is recruiters and hiring managers evaluating me for TPM / cloud roles.
-> - **Builder:** I ship open-source and indie software on the side. I created **basecamp** (a memory bank + workflow kit for AI coding agents, MIT licensed) and run **Made Ordinary**, an indie studio building intentional apps for Apple platforms. I'm deep into AI tooling and homelab projects.
+> - **Builder:** I ship open-source and indie software on the side. I created **Serel Memory** (a memory bank + workflow kit for AI coding agents, MIT licensed) and run **Made Ordinary**, an indie studio building intentional apps for Apple platforms. I'm deep into AI tooling and homelab projects.
 > - **Writer:** The blog is my differentiator — hands-on technical posts (Cloud Resume Challenge series, OWASP Juice Shop on ECS, AI agent tooling). Tech peers arrive from these posts. The writing should feel first-class, not bolted on.
 > - **Voice:** earnest learner-practitioner. First person, plain English, enthusiasm without hype.
 >
@@ -36,7 +36,7 @@ Purpose: Explore a redesign of the personal portfolio + blog at gusfeliciano.com
 > Before designing the full site, show me **three distinct home-page treatments** (desktop 1440px + mobile 375px for each):
 >
 > 1. **Editorial** — type-driven, writing-forward. The blog is the spine of the page; who-I-am is compact. Think a well-set personal column, not a portfolio.
-> 2. **Builder's desk** — project-forward with personality. Featured work (basecamp, Made Ordinary, AWS projects) presented like things on a workbench; warm, a little texture, hints of the homelab/tinkerer identity.
+> 2. **Builder's desk** — project-forward with personality. Featured work (Serel Memory, Made Ordinary, AWS projects) presented like things on a workbench; warm, a little texture, hints of the homelab/tinkerer identity.
 > 3. **Quiet professional** — recruiter-optimized restraint. Strong identity row (name, role, location, certs), then selected work and writing. Closest to the current site but with real typographic character.
 >
 > I'll pick one (or ask for a blend), and then you'll build the full design system and all pages in that direction.
@@ -56,7 +56,7 @@ Purpose: Explore a redesign of the personal portfolio + blog at gusfeliciano.com
 > ### 1. Home
 > - Identity: name, what I do, where (Colorado), and the dual identity (TPM/cloud architect + indie builder) in one composed hero
 > - Latest writing: 2–3 most recent posts, title + excerpt + date
-> - Selected work: basecamp, Made Ordinary (links out to madeordinary.com), and the strongest AWS project
+> - Selected work: Serel Memory, Made Ordinary (links out to madeordinary.com), and the strongest AWS project
 > - A considered place for a resume action (I've been undecided about a "Download Resume" button — design where it *would* live so it earns its place, e.g. near the identity row, not a giant CTA)
 > - Social links (GitHub, LinkedIn), footer
 >
@@ -67,7 +67,7 @@ Purpose: Explore a redesign of the personal portfolio + blog at gusfeliciano.com
 > - Skills, but designed (grouped, scannable — not three bullet lists)
 >
 > ### 3. Projects
-> - Rethink the current uniform card list. Tier it: 1–2 flagship projects (basecamp deserves a case-study-style entry — what it is, why, link to repo + announcement post), then a compact grid/list of the rest (Cloud Resume Challenge parts, this website itself)
+> - Rethink the current uniform card list. Tier it: 1–2 flagship projects (Serel Memory deserves a case-study-style entry — what it is, why, link to repo + announcement post), then a compact grid/list of the rest (Cloud Resume Challenge parts, this website itself)
 > - Each entry: name, one-paragraph description, tech tags, GitHub/external links
 > - Room for a "via Made Ordinary" cross-link for the studio's apps
 >
@@ -117,7 +117,7 @@ Purpose: Explore a redesign of the personal portfolio + blog at gusfeliciano.com
 
 - **"Blend direction 1's blog treatment with direction 3's identity row — show the merged home page."**
 - **"Show the blog post page with a real code-heavy post — long bash blocks, inline code, a table — in both themes."**
-- **"Design the projects page with basecamp as a flagship case study and everything else compact."**
+- **"Design the projects page with Serel Memory as a flagship case study and everything else compact."**
 - **"Show me the home page with and without the resume download — which composition is stronger?"**
 - **"Tighten the about page — recruiters skim: can they get role, location, certs, and two proof points in five seconds?"**
 - **"Show a 'writing' treatment where the blog index has no cover images at all — pure editorial list. Better or worse?"**

@@ -14,7 +14,7 @@
 - **Ecosystem/content strategy** (2026-06-07): gusfeliciano.com = identity + ALL dated
   writing (incl. Made Ordinary making-of stories); madeordinary.com = product/support +
   evergreen undated philosophy pages + release notes, NO dated journal at launch (revisit
-  triggers: app traction, user-facing release content); basecamp canonical on GitHub;
+  triggers: app traction, user-facing release content); Serel Memory canonical on GitHub;
   social = distribution only. Validated: 4-lens panel + 3 adversarial critics + Codex
   (sound-with-amendments). Full doc: docs/site-strategy.md
 - **madeordinary.com stack** (2026-06-07): Next.js App Router (static) + Tailwind on
@@ -31,7 +31,7 @@
   in `public/` — reason not recorded. (Reason established + policy set 2026-06-07, see above)
 - **Exclude OWASP Juice Shop post from blog listing**: via `EXCLUDED_POSTS` — reason
   not recorded
-- **Adopt basecamp v0.1.0 memory bank** (2026-06-07): session continuity for a
+- **Adopt Serel Memory (then basecamp) v0.1.0 memory bank** (2026-06-07): session continuity for a
   return-occasionally project; hooks intentionally NOT enabled — user runs `/start`
   manually each session
 - **Scoped npm override for Next's nested postcss** (2026-06-07): Next ≤16.2.7 pins
@@ -39,7 +39,7 @@
   Scoped to `next` per Codex review (alternatives: global override, accept build-time-only
   residual risk). **Remove the override once Next bumps its own postcss pin.**
 - **Cross-agent review for dependency/security fixes** (2026-06-07): user wants Codex
-  consulted on fixes before committing (basecamp ask-codex pattern)
+  consulted on fixes before committing (Serel Memory ask-codex pattern)
 
 ## ADR index
 

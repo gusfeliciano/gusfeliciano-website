@@ -6,6 +6,8 @@ description: Record an architectural decision in ADR format
 
 Record an architectural or design decision in standard ADR (Architecture Decision Record) format. Use this when a decision is significant enough that future-you (or a future teammate) will want to know why it was made.
 
+**Effective bank:** if `memory-bank.local/` exists (upstream Serel Memory development only), all memory-bank reads and writes below target it instead of the tracked templates. See "Resolving the effective bank" in `docs/workflow-contract.md`.
+
 Steps:
 
 1. If the user hasn't already stated the decision, ask: "What's the decision you want to record?"
@@ -15,7 +17,7 @@ Steps:
 
 Use this structure:
 
-~~~
+~~~markdown
 # [NNN]. [Short imperative title — e.g., "Use Postgres for state, not SQLite"]
 
 ## Status

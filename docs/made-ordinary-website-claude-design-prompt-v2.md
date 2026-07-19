@@ -187,7 +187,7 @@ locked to Next.js static + Tailwind on Vercel.
 2. **Implementation — decided** (Codex-confirmed): **Next.js App Router (static) + Tailwind on
    Vercel**, same stack as gusfeliciano.com — one mental model, zero new ops. Keep it brutally
    static: no CMS, no API routes, no blog machinery. New repo: `madeordinary/site`, with a
-   basecamp memory bank installed day one.
+   Serel Memory memory bank installed day one.
 3. **Build order (lead-app-first):** Home + Apps index → lead app's submission bundle (privacy +
    Support + contact) → lead app page → second app's bundle + page → About/Contact/Terms/404.
    Soft-launch DNS as soon as the submission bundle is live; the public announcement waits.

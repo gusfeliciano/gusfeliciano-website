@@ -1,6 +1,6 @@
 # Workflow Contract
 
-Basecamp workflows should be small, explicit, and portable across agents. Use this
+Serel Memory workflows should be small, explicit, and portable across agents. Use this
 contract when adding or revising a Claude command, Codex skill, or future adapter.
 
 ## Required sections

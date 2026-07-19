@@ -29,9 +29,9 @@ SCOPE:
 [specific files, components, or areas likely to change]
 
 STEPS:
-1. [verb + concrete action]
-2. [verb + concrete action]
-3. [verb + concrete action]
+1. [verb + concrete action] -> verify: [how you'll know it worked]
+2. [verb + concrete action] -> verify: [how you'll know it worked]
+3. [verb + concrete action] -> verify: [how you'll know it worked]
 
 RISKS & UNKNOWNS:
 - [risk, assumption, or validation gap]
@@ -45,13 +45,19 @@ OUT OF SCOPE:
 For high-impact or hard-to-reverse plans (architecture, security/auth, data migrations, public API or schema, dependency choices), get a Claude second opinion before presenting to the user. For routine changes it's optional — use judgment.
 
 1. Check whether Claude is available: `claude --version`
-2. If it is, build a concise prompt with the plan, the goal, and enough project context for a meaningful review, then shell out to Claude in read-only mode:
+2. If it is, build a concise prompt with the plan, the goal, and enough project context for a meaningful review, asking it to end with a one-line verdict (`VERDICT: APPROVE | REVISE | RETHINK`, pick exactly one), then shell out to Claude in read-only mode. Write the prompt to a temp file and pipe it via stdin — long inline prompts are unreliable as CLI arguments — in a single shell invocation (shell state doesn't survive across tool calls):
 
    ```bash
-   claude -p --permission-mode plan "<prompt>"
+   PROMPT_FILE="$(mktemp)"
+   cat > "$PROMPT_FILE" <<'EOF'
+   ...the full prompt...
+   EOF
+   claude -p --permission-mode plan < "$PROMPT_FILE"
+   rm -f "$PROMPT_FILE"
    ```
 
 3. Append a **Second Opinion (Claude)** section to the output:
+   - Verdict (APPROVE / REVISE / RETHINK)
    - Agreements
    - Disagreements or gaps
    - Suggested changes worth adopting
@@ -64,6 +70,8 @@ Then end with: **"Want me to proceed, or change something first?"** and wait.
 ## Rules
 
 - Keep plans to 3-7 steps. If the work is larger, recommend splitting it.
+- Each step ends with `-> verify: [check]`. Reframe imperative steps as verifiable goals ("add validation" -> "write tests for invalid inputs, then make them pass").
 - Say material assumptions explicitly.
+- If the request has more than one reasonable interpretation, lay them out and ask which one — don't silently pick.
 - If the memory bank is blank, stale, or contradictory, say what is missing before guessing.
 - Do not start implementation until the user confirms.
